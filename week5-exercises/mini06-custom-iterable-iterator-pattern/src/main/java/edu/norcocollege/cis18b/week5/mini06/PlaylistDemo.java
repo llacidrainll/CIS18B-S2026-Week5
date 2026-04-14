@@ -16,6 +16,7 @@ public class PlaylistDemo {
         System.out.println("Priority order: " + titles(playlist.priorityIterator()));
 
         // TODO: Add a brief reflection in your submission about when built-in iteration would be enough.
+        // Built-in iteration is enough when you only need to go through the data in insertion order without needing custom sorting
     }
 
     static List<String> titles(Iterator<PlaylistItem> iterator) {

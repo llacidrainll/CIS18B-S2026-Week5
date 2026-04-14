@@ -25,6 +25,13 @@ public class Playlist implements Iterable<PlaylistItem> {
         sorted.sort(Comparator.comparingInt(PlaylistItem::getPriority).reversed());
         return sorted.iterator();
     }
+    public Iterator<PlaylistItem> alphabeticalIterator() {
+    List<PlaylistItem> sorted = new ArrayList<>(items);
+
+    sorted.sort(Comparator.comparing(PlaylistItem::getTitle));
+
+    return sorted.iterator();
+}
 
     // TODO: Add a third traversal strategy for the extension challenge.
 }
