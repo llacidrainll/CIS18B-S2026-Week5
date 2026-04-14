@@ -34,6 +34,18 @@ public class EnrollmentMapDemo {
         departments.computeIfAbsent("CIS", key -> new java.util.ArrayList<>()).add("SEC-102");
         System.out.println("Grouped sections: " + departments);
 
+        Map<StringBuilder, String> badMap = new HashMap<>();
+
+        StringBuilder key = new StringBuilder("SEC-200");
+
+        badMap.put(key, "Test Section");
+
+        // Mutate the key AFTER insertion (BAD PRACTICE)
+        key.append("X");
+
+        System.out.println("Lookup with modified key: " + badMap.get(key));
+        System.out.println("Map contents: " + badMap);
+        System.out.println("Mutable keys are bad because changing that key changes its hashCode, " + "so the HashMap may not be able to find the entry anymore.");
         // TODO: Demonstrate and explain why mutable keys are hazardous in hash-based maps.
     }
 }
