@@ -35,5 +35,23 @@ public class EnrollmentMapDemo {
         System.out.println("Grouped sections: " + departments);
 
         // TODO: Demonstrate and explain why mutable keys are hazardous in hash-based maps.
+        System.out.println("\nMutable Key Hazard Demo:");
+
+        // BAD IDEA example using a mutable object as a key 
+        String key = "SEC-200";
+        Map<String, Integer> demo = new HashMap<>();
+
+        demo.put(key, 40);
+
+    // "mutating" the key reference  cause strings are immutable
+        key = "CHANGED-SEC-200";
+
+        System.out.println("Original map lookup with old key: " + demo.get("SEC-200"));
+        System.out.println("After key reference change: " + demo.get(key));
+
+        System.out.println("\nWhy this is dangerous:");
+        System.out.println("- If a key changes after insertion, the hash location changes.");
+        System.out.println("- The map can no longer find the entry.");
+        System.out.println("- This leads to 'lost' data in real mutable-key objects.");
     }
 }
