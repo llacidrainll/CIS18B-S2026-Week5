@@ -16,7 +16,6 @@ public class DequeWorkbench {
         helpDesk.addLast("import roster");
         helpDesk.addLast("email reminder");
         helpDesk.addFirst("urgent outage");
-
         while (!helpDesk.isEmpty()) {
             System.out.println("FIFO processed: " + helpDesk.removeFirst());
         }
@@ -27,7 +26,7 @@ public class DequeWorkbench {
 
         undoStack.push("rename file");
         undoStack.push("insert checkpoint");
-
+        undoStack.push("revert commit");
         while (!undoStack.isEmpty()) {
             System.out.println("Undo popped: " + undoStack.pop());
         }
